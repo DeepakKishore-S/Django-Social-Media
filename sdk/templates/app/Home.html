@@ -1,0 +1,66 @@
+{% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>Home</title>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      <meta content="" name="keywords">
+      <meta content="" name="description">
+
+
+     <!-- Bootstrap CSS File -->
+      <link href="{% static 'sdk/bootstrap.min.css' %}" rel="stylesheet">
+
+      <link href="{% static '//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+
+
+      <!-- Main Stylesheet File -->
+      <link href="{% static 'sdk/style.css' %}" rel="stylesheet">
+
+    
+    </head>
+    
+    <body style="background-image: url('{% static "sdk/intro-bg.png"%}')";>
+    
+      <header id="header" class="fixed-top">
+        <div class="container">
+    
+          <div class="float-left">
+              <h1><a href="#"><img src="{% static 'sdk/logoo.png' %}" /></a></h1> 
+          </div>
+    
+          <nav class="main-nav float-right d-none d-lg-block">
+            <ul>
+              <li class="active"><a href="#intro">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+            </ul>
+          </nav><!-- .main-nav -->
+          
+        </div>
+      </header><!-- #header -->
+    
+      
+<section id="intro" class="clearfix">
+        <div class="container">
+    
+          <div class="intro-img">
+            <img src="{% static 'sdk/intro-img.svg' %}" alt="" class="img-fluid">
+          </div>
+    
+          <div class="intro-info">
+            <h2>We created<br><span>community</span><br>for you to gain knowledge !</h2>
+            <div>
+              <a href="{% url 'sign_up' %}" class="btn-get-started scrollto">Get Started</a>
+              <a href="{% url 'login' %}" class="btn-services scrollto">Log in</a>
+            </div>
+          </div>
+    
+        </div>
+      </section>
+    
+    </body>
+    </html>
+    curl -u "sdkdeepak1612" https://api.github.com/user/repos -d "{\"name\":\"Django-Social Media\"}"

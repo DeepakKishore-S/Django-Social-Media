@@ -1,0 +1,30 @@
+{% extends 'app/layoutreg.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Log in
+{% endblock %}
+
+{% block header %}
+  LOG IN
+{% endblock %}
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+<div class="form-content">
+<div class="row">
+        <div class="col-md-6">
+                <div class="form-group">
+                        {{ form|crispy}}                          
+                  </div>
+            </div>
+        </div>
+    <br>
+    <button type="submit" class="btnSubmit">Log in</button><br><br>
+    <small>Need an Account?<a href="{% url 'sign_up' %}">Sign up</a></small><br>
+    <small>Forgot password?<a href="{% url 'password_reset' %}">Click here</a></small>
+</div>    
+</form>
+<p>Back to <a href="{% url 'Home' %}">home</a></p>
+{% endblock %}

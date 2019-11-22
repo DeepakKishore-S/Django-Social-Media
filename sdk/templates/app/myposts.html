@@ -1,0 +1,53 @@
+{% extends 'app/posts_base.html' %}
+
+{% block title %}
+My posts
+{% endblock %}
+
+{% block css %}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+          rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet"
+          href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
+
+{% endblock%}
+
+{% block content %}
+<div>
+    {% for post in posts reversed %}
+    <div class="container">
+        <div class="well">
+            <div class="media">
+                <a class="pull-left" href="#">
+                    <p class="media-heading" style=" font: italic small-caps bold 30px/2 cursive;" >
+                        <a href="{% url 'detail' post.pk %}" >{{post.title }}</a>
+                    </p>
+                    <p>{{ post.subject }}</p>
+                                       
+                    <ul class="list-inline list-unstyled">
+                        <li><span><i class="glyphicon glyphicon-calendar"></i> Posted On </span></li>
+                        <li></li><span> {{ post.date_posted }} </span><br>
+                        <li><span><i class="glyphicon glyphicon-calendar"></i> Last modified </span></li>
+                        <li><span> {{ post.last_modified }} </span></li>
+                        <li><span> &#124; {{ post.like.count }} Likes </span></li>
+                    </ul>
+                    <a href="{% url 'post-update' post.pk %}">
+                        <button class="button" style="background-color: #008CBA;" type="button"  >
+                            Update
+                        </button>
+                    </a>
+
+                    <a href="{% url 'post-delete' post.pk  %}">
+                        <button class="button" style="background-color: #f44336;" type="button">
+                            Delete
+                        </button>
+                    </a>
+            </div>
+        </div>
+    </div>
+
+    {% empty %}
+    <p>No Posts here yet :(</p>
+    {% endfor %}
+</div>
+{% endblock %}

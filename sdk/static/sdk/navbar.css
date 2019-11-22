@@ -1,0 +1,76 @@
+ body, html{
+            font-size: 100%;
+            font-family: Helvetica, sans-serif;
+        }
+        body,html{
+            margin: 0;
+            padding: 0;
+        }
+        nav ul{
+            list-style: none;
+            padding: 0;
+            background-color: dodgerblue;
+        }
+        nav ul li a{
+            color: aliceblue;
+            text-decoration: none;
+            padding: .8rem 1rem;
+            display: block;
+
+        }
+        nav ul li{
+            border-bottom: 3px double;
+            border-color: white;
+        }
+        nav div:first-child{
+            background-color: rgb(0, 104, 207);
+        }
+        nav div:first-child h1{
+            line-height: 0;
+            padding: .8rem 0rem;
+            text-align: center;
+
+        }
+        nav div:first-child img{
+            /* filter:contrast(100); */
+        }
+        nav div:first-child h1, nav ul{
+            margin: 0;
+        }
+        @media only screen and (min-width:30em){
+            nav{
+                position:sticky;
+                top: 0;
+                z-index: 10;
+                display: flex;
+                justify-content:space-between;
+                background-color: dodgerblue;
+            }
+            nav ul{
+                display: flex;
+                align-items: center
+
+            }
+            nav div:first-child h1{
+                padding: 0;
+            }
+
+            nav ul li{
+                border-bottom: none;
+            }
+            nav ul li:hover{
+            background: rgb(0, 104, 207);
+            border-radius: 3px;
+        }
+
+        }
+               .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 7px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      }

@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style>
+        body, html{
+            font-size: 100%;
+            font-family: Helvetica, sans-serif;
+        }
+        body,html{
+            margin: 0;
+            padding: 0;
+        }
+        nav ul{
+            list-style: none;
+            padding: 0;
+            background-color: dodgerblue;
+        }
+        nav ul li a{
+            color: aliceblue;
+            text-decoration: none;
+            padding: .8rem 1rem;
+            display: block;
+
+        }
+        nav ul li{
+            border-bottom: 3px double;
+            border-color: white;
+        }
+        nav div:first-child{
+            background-color: rgb(0, 104, 207);
+        }
+        nav div:first-child h1{
+            line-height: 0;
+            padding: .8rem 0rem;
+            text-align: center;
+
+        }
+        nav div:first-child img{
+            /* filter:contrast(100); */
+        }
+        nav div:first-child h1, nav ul{
+            margin: 0;
+        }
+        @media only screen and (min-width:30em){
+            nav{
+                position:sticky;
+                top: 0;
+                z-index: 10;
+                display: flex;
+                justify-content:space-between;
+                background-color: dodgerblue;
+            }
+            nav ul{
+                display: flex;
+                align-items: center
+
+            }
+            nav div:first-child h1{
+                padding: 0;
+            }
+
+            nav ul li{
+                border-bottom: none;
+            }
+            nav ul li:hover{
+            background: rgb(0, 104, 207);
+            border-radius: 3px;
+        }
+        .button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 7px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+        }
+
+    </style>
+
+</head>
+<body>
+
+            <nav>
+                    <div>
+                          <h1><a href="#"><img src="{% static 'sdk/logoo.png' %}" style="width:150px;  height:75px ;" /></a></h1>
+                    </div>
+                    <ul>
+
+                        <li><a href="{% url 'logout' %}">HOME</a></li>
+                        <li><a href="{% url 'posts' %}">POSTS</a></li>
+                        <li><a href="{% url 'newpost' %}">ADD POST</a></li>
+                        <li><a href="{% url 'my_post' %}">MY POSTS</a></li>
+                        <li><a href="{% url 'profile' %}">PROFILE</a></li>
+                        <li><a href="{% url 'logout' %}">LOG OUT</a></li>
+                    </ul>
+
+                </nav>
+</div><br>
+
+
+
+
+                <div>
+                        {% for user in followers %}
+                        <div class="container">
+                                <div class="well">
+                                    <div class="media">
+                                        <a class="pull-left" href="#">
+                                             <img class="media-object" style="border-radius: 50%" src="{{ user.profile.Profile_image.url }} " width="50px " height="50px">
+                                            <p style=" font: italic small-caps bold 30px/2 cursive;" ><a href="{% url 'userpage' user.profile.id %}" >{{ user.username }}</a></p>
+                                            <a   href="{% url 'userpost' user.username %}">posts</a>
+                                            <p></p>
+
+
+                                          </div>
+                                  </div>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <p>No one is following you  :(</p>
+                        {% endfor %}
+
+
+
+
+
+
+
+</body>
+</html>
+

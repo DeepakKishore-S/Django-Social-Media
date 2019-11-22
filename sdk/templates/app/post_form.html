@@ -1,0 +1,114 @@
+{% extends 'app/layoutreg.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Add post
+{% endblock %}
+
+{% block navcss %}
+body, html{
+    font-size: 100%;
+    font-family: Helvetica, sans-serif;
+}
+body,html{
+    margin: 0;
+    padding: 0;
+}
+nav ul{
+    list-style: none;
+    padding: 0;
+    background-color: dodgerblue;
+}
+nav ul li a{
+    color: aliceblue;
+    text-decoration: none;
+    padding: .8rem 1rem;
+    display: block;
+
+}
+nav ul li{
+    border-bottom: 3px double;
+    border-color: white;
+}
+nav div:first-child{
+    background-color: rgb(0, 104, 207);
+}
+nav div:first-child h1{
+    line-height: 0;
+    padding: .8rem 0rem;
+    text-align: center;
+
+}
+nav div:first-child img{
+    /* filter:contrast(100); */
+}
+nav div:first-child h1, nav ul{
+    margin: 0;
+}   
+@media only screen and (min-width:30em){
+    nav{
+        display: flex;
+        justify-content:space-between;
+        background-color: dodgerblue;
+    }
+    nav ul{
+        display: flex;
+        align-items: center
+
+    }
+    nav div:first-child h1{
+        padding: 0;
+    }
+      
+    nav ul li{
+        border-bottom: none;
+    }
+    nav ul li:hover{
+    background: rgb(0, 104, 207);
+    border-radius: 3px;
+}
+}
+{% endblock %}
+
+{% block nav %}
+
+<nav>
+        <div>
+              <h1><a href="#"><img src="{% static 'sdk/logoo.png' %}" style="width:150px;  height:75px ;" /></a></h1> 
+        </div>
+        <ul>
+            <li><a href="{% url 'logout' %}">HOME</a></li>
+            <li><a href="{% url 'posts' %}">POSTS</a></li>
+            <li><a href="{% url 'newpost' %}">ADD POST</a></li>
+            <li><a href="{% url 'my_post' %}">MY POSTS</a></li>
+            <li><a href="{% url 'profile' %}">PROFILE</a></li>
+            <li><a href="{% url 'logout' %}">LOG OUT</a></li>
+        </ul>
+     
+    </nav> <br>
+{%  endblock %}
+
+{% block header %}
+CREATE POST
+{% endblock %}
+
+
+
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                        <div class="form-content">
+                            <div class="row">
+                                    <div class="col-md-6">
+                                            <div class="form-group">
+                                                    {{ form|crispy}}                          
+                                              </div>
+                                        </div>
+                                    </div>
+                                <br>
+                                <button type="submit" class="btnSubmit">Post</button><br><br>
+                            </div>    
+                        </form>
+{% endblock %}

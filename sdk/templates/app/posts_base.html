@@ -1,0 +1,45 @@
+{% load crispy_forms_tags %}
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title  %}  {% endblock %}</title>
+
+
+
+
+    {% block css %}
+
+
+    {% endblock %}
+    <link href="{% static 'sdk/navbar.css'%}" rel="stylesheet">
+</head>
+
+<body>
+<div>
+    <nav>
+        <div>
+            <h1>
+                <a href="#"><img src="{% static 'sdk/logoo.png' %}" style="width:150px;  height:75px ;" /></a>
+            </h1>
+        </div>
+        <ul>
+
+            <li><a href="{% url 'logout' %}">HOME</a></li>
+            <li><a href="{% url 'posts' %}">POSTS</a></li>
+            <li><a href="{% url 'Followers_Posts' user.pk %}">FOLLOWERS POSTS</a></li>
+            <li><a href="{% url 'newpost' %}">ADD POST</a></li>
+            <li><a href="{% url 'my_post' %}">MY POSTS</a></li>
+            <li><a href="{% url 'profile' %}">PROFILE</a></li>
+            <li><a href="{% url 'logout' %}">LOG OUT</a></li>
+        </ul>
+
+    </nav>
+</div><br>
+  {% block content %}
+  {% endblock %}
+</body>
+</html>
+

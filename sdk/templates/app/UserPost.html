@@ -1,0 +1,47 @@
+{% extends 'app/posts_base.html' %}
+
+{% block title %}
+posts
+{% endblock %}
+
+{% block content %}
+
+    <h4>Posted by {{ view.kwargs.username }}  </h4>
+
+                <div>
+                        {% for post in posts %}
+                        <div class="container">
+                                <div class="well">
+                                    <div class="media">
+                                        <a class="pull-left" href="#">
+                                          <img class="media-object" style="border-radius: 50%" src="{{ post.author.profile.Profile_image.url }} " width="100px " height="100px">
+                                        </a>
+                                        <div class="media-body">
+                                             <a href="{% url 'userpage' post.author.profile.id %}"><h4 class="media-heading">{{ post.author }}</h4>   </a>
+
+                                            <p class="media-heading" style=" font: italic small-caps bold 30px/2 cursive;" ><a href="{% url 'detail' post.pk %}" >{{post.title }}</a></p>
+                                            <p>{{ post.subject }}</p>
+
+                                        <ul class="list-inline list-unstyled">
+                                            <li><span><i class="glyphicon glyphicon-calendar"></i> Posted On </span></li>
+                                            <li></li><span> {{ post.date_posted }} </span><br>
+                                            <li><span><i class="glyphicon glyphicon-calendar"></i> Last modified </span></li>
+                                            <li><span> {{ post.last_modified }} </span></li>
+                                            <li><span> &#124; {{ post.like.count }} Likes </span></li>
+
+                                          </ul>
+                                     </div>
+                                  </div>
+                                </div>
+                            </div>
+                            {% empty %}
+                            <p>No Posts here yet :(</p>
+
+                        {% endfor %}
+                </div>
+
+
+{% endblock %}
+
+
+

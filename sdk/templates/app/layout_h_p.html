@@ -1,0 +1,48 @@
+{% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>Home</title>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      <meta content="" name="keywords">
+      <meta content="" name="description">
+     <!-- Bootstrap CSS File -->
+      <link href="{% static 'sdk/bootstrap.min.css' %}" rel="stylesheet">
+
+      <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    
+      <!-- Main Stylesheet File -->
+      <link href="{% static 'sdk/style.css' %}" rel="stylesheet">
+
+    
+    </head>
+    
+    <body style="background-image: url('{% static "sdk/intro-bg.png"%}')";>
+    
+      <header id="header" class="fixed-top">
+        <div class="container">
+    
+          <div class="logo float-left">
+            <h1  style=" font: italic small-caps bold 40px/2 cursive;" >SDK</h1>
+          </div>
+    
+          <nav class="main-nav float-right d-none d-lg-block">
+            <ul>
+              <li class="active"><a href="#intro">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+            </ul>
+          </nav><!-- .main-nav -->
+          
+        </div>
+      </header><!-- #header -->
+    
+     {% block content %}
+     {% endblock %}
+
+    </body>
+    </html>
+    

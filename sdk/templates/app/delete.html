@@ -1,0 +1,28 @@
+{% extends 'app/layoutreg.html' %}
+
+{% block title %}
+Delete-post
+{% endblock %}
+
+
+
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                        <div class="form-content">
+                            <div class="row">
+                                    <div class="col-md-6">
+                                            <div class="form-group">
+                                                Delete Post
+                                              </div>
+                                        </div>
+                                    </div>
+                                    <h2>Are u want to delete "{{object.title}}"</h2>
+                                <br>
+                                <button type="submit" class="button"style="background-color: red" >Yes, Delete</button>
+                                <a  href="{% url 'detail' object.id %}"  ><button class="button" style="background-color: blue" type="button">no</button> </a><br><br>
+                            </div>
+                        </form>
+                        <p>Back to <a href="{% url 'posts' %}">Posts</a></p>
+{% endblock %}
